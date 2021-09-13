@@ -1,10 +1,22 @@
 import React from "react";
 import Entry from "./Entry";
+import emojipedia from "../emojipedia";
 
-//1. Create a seperate "Entry" Component
-//2. create Pops to replace hardcoded data
-//.3 import the emojipedia const.
-//3.1. Map though the emojipedia array and rander Entry components.
+//1. Create a seperate "Entry" Component------- done
+//2. create Pops to replace hardcoded data ....d
+//.3 import the emojipedia const....d
+//3.1. Map though the emojipedia array and rander Entry components....d
+
+function createEntry(emojiTerm) {
+  return (
+    <Entry
+      key={emojiTerm.id}
+      emoji={emojiTerm.emoji}
+      name={emojiTerm.name}
+      description={emojiTerm.meaning}
+    />
+  );
+}
 
 function App() {
   return (
@@ -13,11 +25,7 @@ function App() {
         <span>emojipedia</span>
       </h1>
 
-      <dl className="dictionary">
-      <Entry />
-      <Entry />
-      <Entry />
-      </dl>
+      <dl className="dictionary">{emojipedia.map(createEntry)}</dl>
     </div>
   );
 }
